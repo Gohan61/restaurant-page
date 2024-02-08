@@ -156,6 +156,66 @@ export default function menu() {
     ),
   };
 
+  const dinnerDivs = {
+    nasi: createField(
+      "div",
+      dinnerDiv.elementName,
+      { class: "itemDiv" },
+      undefined
+    ),
+    bami: createField(
+      "div",
+      dinnerDiv.elementName,
+      { class: "itemDiv" },
+      undefined
+    ),
+    burger: createField(
+      "div",
+      dinnerDiv.elementName,
+      { class: "itemDiv" },
+      undefined
+    ),
+  };
+
+  const dinnerItems = {
+    nasi: createField(
+      "p",
+      dinnerDivs.nasi.elementName,
+      { class: "foodItem" },
+      "Rice with spicy vegetables"
+    ),
+    nasiPrice: createField(
+      "p",
+      dinnerDivs.nasi.elementName,
+      { class: "price" },
+      "$50"
+    ),
+    bami: createField(
+      "p",
+      dinnerDivs.bami.elementName,
+      { class: "foodItem" },
+      "Bami"
+    ),
+    bamiPrice: createField(
+      "p",
+      dinnerDivs.bami.elementName,
+      { class: "price" },
+      "$45"
+    ),
+    burger: createField(
+      "p",
+      dinnerDivs.burger.elementName,
+      { class: "foodItem" },
+      "Burger"
+    ),
+    burgerPrice: createField(
+      "p",
+      dinnerDivs.burger.elementName,
+      { class: "price" },
+      "$65"
+    ),
+  };
+
   menuHeader.setText().appendElement();
   breakfastDiv.setClass().appendElement();
   lunchDiv.setClass().appendElement();
@@ -187,6 +247,17 @@ export default function menu() {
   lunchItems.salmonPrice.setClass().setText().appendElement();
   lunchItems.beefPrice.setClass().setText().appendElement();
   lunchItems.chickenPrice.setClass().setText().appendElement();
+
+  dinnerDivs.nasi.setClass().appendElement();
+  dinnerDivs.bami.setClass().appendElement();
+  dinnerDivs.burger.setClass().appendElement();
+
+  dinnerItems.nasi.setClass().setText().appendElement();
+  dinnerItems.bami.setClass().setText().appendElement();
+  dinnerItems.burger.setClass().setText().appendElement();
+  dinnerItems.nasiPrice.setClass().setText().appendElement();
+  dinnerItems.bamiPrice.setClass().setText().appendElement();
+  dinnerItems.burgerPrice.setClass().setText().appendElement();
 }
 
 export function createField(element, appendTo, attributes, text) {
