@@ -278,6 +278,31 @@ export function createField(element, appendTo, attributes, text) {
     return this;
   };
 
+  const setAlt = function () {
+    elementName.setAttribute("alt", attributes["alt"]);
+    return this;
+  };
+
+  const setWidth = function () {
+    elementName.setAttribute("width", attributes["width"]);
+    return this;
+  };
+
+  const setHeight = function () {
+    elementName.setAttribute("height", attributes["height"]);
+    return this;
+  };
+
+  const setSrc = function () {
+    elementName.setAttribute("src", attributes["src"]);
+    return this;
+  };
+
+  const setLink = function () {
+    elementName.setAttribute("href", attributes["href"]);
+    return this;
+  };
+
   const appendElement = () => appendTo.append(elementName);
 
   return {
@@ -286,5 +311,10 @@ export function createField(element, appendTo, attributes, text) {
     setId,
     setText,
     appendElement,
+    setAlt,
+    setWidth,
+    setHeight,
+    setSrc,
+    setLink,
   };
 }
