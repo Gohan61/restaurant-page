@@ -12,7 +12,7 @@ export default function contact() {
   const contactDiv = createField(
     "div",
     contentDiv,
-    { class: "contentDiv" },
+    { class: "contactDiv" },
     undefined
   );
 
@@ -20,25 +20,25 @@ export default function contact() {
     companyName: createField(
       "p",
       contactDiv.elementName,
-      undefined,
+      { class: "address" },
       "The Looks Restaurant"
     ),
     addressLine1: createField(
       "p",
       contactDiv.elementName,
-      undefined,
+      { class: "address" },
       "Seaside street 15"
     ),
     addressLine2: createField(
       "p",
       contactDiv.elementName,
-      undefined,
+      { class: "address" },
       "90000 GREAT"
     ),
     addressLine3: createField(
       "p",
       contactDiv.elementName,
-      undefined,
+      { class: "address" },
       "LOOKMOND"
     ),
   };
@@ -78,10 +78,10 @@ export default function contact() {
   contactHeader.setText().appendElement();
   contactDiv.setClass().appendElement();
 
-  contactItems.companyName.setText().appendElement();
-  contactItems.addressLine1.setText().appendElement();
-  contactItems.addressLine2.setText().appendElement();
-  contactItems.addressLine3.setText().appendElement();
+  contactItems.companyName.setText().setClass().appendElement();
+  contactItems.addressLine1.setText().setClass().appendElement();
+  contactItems.addressLine2.setText().setClass().appendElement();
+  contactItems.addressLine3.setText().setClass().appendElement();
 
   imageDiv.setClass().appendElement();
   imageItems.img
