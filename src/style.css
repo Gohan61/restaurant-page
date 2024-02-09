@@ -41,7 +41,8 @@ img[alt="Modern vintage restaurant"] {
   border-radius: 10px;
 }
 
-img[alt="Modern vintage restaurant"] + p {
+img[alt="Modern vintage restaurant"] + p,
+.imageDiv p {
   font-size: 0.5em;
   font-style: italic;
 }
@@ -91,4 +92,26 @@ img[alt="Modern vintage restaurant"] + p + div {
 
 .price {
   color: brown;
+}
+
+/* Contact */
+
+.contactDiv {
+  align-self: flex-start;
+  margin-left: 100px;
+  font-size: 1.5em;
+}
+
+.contactDiv p:nth-child(1) {
+  font-weight: bold;
+}
+
+.imageDiv {
+  align-self: flex-end;
+  width: 50%;
+  height: 50%;
+}
+
+.compassImg {
+  border-radius: 10px;
 }
