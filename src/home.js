@@ -1,6 +1,8 @@
+import restaurantImg from "./jason-leung-poI7DelFiVA-unsplash.jpg";
+
 export default function homePage() {
   const contentTitle = document.createElement("h1");
-  const restuarantImage = document.createElement("img");
+  const restaurantImage = new Image();
   const restuarantImageAttr = document.createElement("p");
   const restuarantImageAttrLink = document.createElement("a");
   const restaurantDescription = document.createElement("div");
@@ -19,22 +21,19 @@ We want you to have a good time, enjoy the scene and the people.
 Our goal is not to make you think about how the food tastes but how time has past in a
 very enjoyable manner.`;
 
-  const restuarantImageAttributes = {
-    src: "../src/jason-leung-poI7DelFiVA-unsplash.jpg",
-    alt: "Modern vintage restaurant",
-    width: "100%",
-    height: "30%",
-  };
+  restaurantImage.src = restaurantImg;
+  restaurantImage.setAttribute("alt", "Modern vintage restaurant");
+  restaurantImage.setAttribute("width", "100%");
+  restaurantImage.setAttribute("height", "30%");
 
   const restuarantImageLink = {
     href: "https://unsplash.com/photos/photo-of-pub-set-in-room-during-daytime-poI7DelFiVA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
   };
 
-  setAttributes(restuarantImage, restuarantImageAttributes);
   setAttributes(restuarantImageAttrLink, restuarantImageLink);
 
   appendItem(contentTitle, contentDiv);
-  appendItem(restuarantImage, contentDiv);
+  appendItem(restaurantImage, contentDiv);
   appendItem(restuarantImageAttr, contentDiv);
   appendItem(restaurantDescription, contentDiv);
   appendItem(restuarantImageAttrLink, restuarantImageAttr);

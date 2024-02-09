@@ -1,4 +1,5 @@
 import { createField } from "./menu";
+import myCompass from "./garrett-sears-T57t6ZUT2Kc-unsplash.jpg";
 
 export default function contact() {
   const contentDiv = document.querySelector("#content");
@@ -51,18 +52,6 @@ export default function contact() {
   );
 
   const imageItems = {
-    img: createField(
-      "img",
-      imageDiv.elementName,
-      {
-        class: "compassImg",
-        alt: "Compass in hand facing seaside",
-        width: "50%",
-        height: "40%",
-        src: "./garrett-sears-T57t6ZUT2Kc-unsplash.jpg",
-      },
-      undefined
-    ),
     imgAttr: createField("p", imageDiv.elementName, undefined, "Photo by "),
   };
 
@@ -75,6 +64,13 @@ export default function contact() {
     "Garret Sears"
   );
 
+  const compassVar = new Image();
+  compassVar.src = myCompass;
+  compassVar.setAttribute("class", "compassImg");
+  compassVar.setAttribute("alt", "Compass in hand facing seaside");
+  compassVar.setAttribute("width", "50%");
+  compassVar.setAttribute("height", "40%");
+
   contactHeader.setText().appendElement();
   contactDiv.setClass().appendElement();
 
@@ -84,13 +80,8 @@ export default function contact() {
   contactItems.addressLine3.setText().setClass().appendElement();
 
   imageDiv.setClass().appendElement();
-  imageItems.img
-    .setClass()
-    .setAlt()
-    .setWidth()
-    .setHeight()
-    .setSrc()
-    .appendElement();
+  imageDiv.elementName.appendChild(compassVar);
+
   imageItems.imgAttr.setText().appendElement();
   imageLink.setLink().setText().appendElement();
 }
