@@ -59,7 +59,7 @@ export default function contact() {
         alt: "Compass in hand facing seaside",
         width: "50%",
         height: "40%",
-        src: "../src/garrett-sears-T57t6ZUT2Kc-unsplash.jpg",
+        src: "./garrett-sears-T57t6ZUT2Kc-unsplash.jpg",
       },
       undefined
     ),
