@@ -2,10 +2,12 @@ import { createField } from "./menu";
 import myCompass from "./garrett-sears-T57t6ZUT2Kc-unsplash.jpg";
 
 export default function contact() {
-  const contentDiv = document.querySelector("#content");
+  const contentDiv: HTMLDivElement | null = document.querySelector("#content");
 
-  while (contentDiv.firstChild) {
-    contentDiv.removeChild(contentDiv.lastChild);
+  if (contentDiv) {
+    while (contentDiv.firstChild) {
+      contentDiv.removeChild(contentDiv.lastChild!);
+    }
   }
 
   const contactHeader = createField("h1", contentDiv, undefined, "Contact");
@@ -64,7 +66,7 @@ export default function contact() {
     "Garret Sears"
   );
 
-  const compassVar = new Image();
+  const compassVar: HTMLImageElement = new Image();
   compassVar.src = myCompass;
   compassVar.setAttribute("class", "compassImg");
   compassVar.setAttribute("alt", "Compass in hand facing seaside");

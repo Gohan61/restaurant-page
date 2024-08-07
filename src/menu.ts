@@ -1,8 +1,10 @@
 export default function menu() {
   const contentDiv = document.querySelector("#content");
 
-  while (contentDiv.firstChild) {
-    contentDiv.removeChild(contentDiv.lastChild);
+  if (contentDiv) {
+    while (contentDiv.firstChild) {
+      contentDiv.removeChild(contentDiv.lastChild!);
+    }
   }
 
   const menuHeader = createField("h1", contentDiv, undefined, "Menu");
@@ -260,46 +262,69 @@ export default function menu() {
   dinnerItems.burgerPrice.setClass().setText().appendElement();
 }
 
-export function createField(element, appendTo, attributes, text) {
+type Elements = "div" | "p" | "h2" | "h1" | "a";
+type Attributes = {
+  href?: string;
+  class?: string;
+  id?: string;
+  alt?: string;
+  src?: string;
+  width?: string;
+  height?: string;
+};
+
+export function createField(
+  element: Elements,
+  appendTo: any,
+  attributes: Attributes | undefined,
+  text: string | undefined
+) {
   const elementName = document.createElement(`${element}`);
 
   const setClass = function () {
-    elementName.setAttribute("class", attributes["class"]);
+    if (attributes && attributes.class)
+      elementName.setAttribute("class", attributes["class"]);
     return this;
   };
 
   const setId = function () {
-    elementName.setAttribute("id", attributes["id"]);
+    if (attributes && attributes.id)
+      elementName.setAttribute("id", attributes["id"]);
     return this;
   };
 
   const setText = function () {
-    elementName.textContent = text;
+    if (text) elementName.textContent = text;
     return this;
   };
 
   const setAlt = function () {
-    elementName.setAttribute("alt", attributes["alt"]);
+    if (attributes && attributes.alt)
+      elementName.setAttribute("alt", attributes["alt"]);
     return this;
   };
 
   const setWidth = function () {
-    elementName.setAttribute("width", attributes["width"]);
+    if (attributes && attributes.width)
+      elementName.setAttribute("width", attributes["width"]);
     return this;
   };
 
   const setHeight = function () {
-    elementName.setAttribute("height", attributes["height"]);
+    if (attributes && attributes.height)
+      elementName.setAttribute("height", attributes["height"]);
     return this;
   };
 
   const setSrc = function () {
-    elementName.setAttribute("src", attributes["src"]);
+    if (attributes && attributes.src)
+      elementName.setAttribute("src", attributes["src"]);
     return this;
   };
 
   const setLink = function () {
-    elementName.setAttribute("href", attributes["href"]);
+    if (attributes && attributes.href)
+      elementName.setAttribute("href", attributes["href"]);
     return this;
   };
 

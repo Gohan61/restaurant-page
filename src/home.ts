@@ -1,15 +1,18 @@
 import restaurantImg from "./jason-leung-poI7DelFiVA-unsplash.jpg";
 
 export default function homePage() {
-  const contentTitle = document.createElement("h1");
-  const restaurantImage = new Image();
-  const restuarantImageAttr = document.createElement("p");
-  const restuarantImageAttrLink = document.createElement("a");
-  const restaurantDescription = document.createElement("div");
-  const contentDiv = document.querySelector("#content");
+  const contentTitle: HTMLHeadElement = document.createElement("h1");
+  const restaurantImage: HTMLImageElement = new Image();
+  const restuarantImageAttr: HTMLParagraphElement = document.createElement("p");
+  const restuarantImageAttrLink: HTMLAnchorElement =
+    document.createElement("a");
+  const restaurantDescription: HTMLDivElement = document.createElement("div");
+  const contentDiv: HTMLDivElement | null = document.querySelector("#content");
 
-  while (contentDiv.firstChild) {
-    contentDiv.removeChild(contentDiv.lastChild);
+  if (contentDiv) {
+    while (contentDiv.firstChild) {
+      contentDiv.removeChild(contentDiv.lastChild!);
+    }
   }
 
   contentTitle.textContent = "Our beautiful restaurant";
@@ -32,21 +35,30 @@ very enjoyable manner.`;
 
   setAttributes(restuarantImageAttrLink, restuarantImageLink);
 
-  appendItem(contentTitle, contentDiv);
-  appendItem(restaurantImage, contentDiv);
-  appendItem(restuarantImageAttr, contentDiv);
-  appendItem(restaurantDescription, contentDiv);
-  appendItem(restuarantImageAttrLink, restuarantImageAttr);
+  if (contentDiv) {
+    appendItem(contentTitle, contentDiv);
+    appendItem(restaurantImage, contentDiv);
+    appendItem(restuarantImageAttr, contentDiv);
+    appendItem(restaurantDescription, contentDiv);
+    appendItem(restuarantImageAttrLink, restuarantImageAttr);
+  }
 
   return { setAttributes, appendItem };
 }
 
-export function setAttributes(element, attributes) {
+type Elements =
+  | HTMLAnchorElement
+  | HTMLParagraphElement
+  | HTMLHeadElement
+  | HTMLImageElement
+  | HTMLDivElement;
+
+export function setAttributes(element: Elements, attributes: any): void {
   for (const [key, value] of Object.entries(attributes)) {
-    element.setAttribute(key, value);
+    element.setAttribute(key, value as string);
   }
 }
 
-export function appendItem(element, itemTo) {
+export function appendItem(element: Elements, itemTo: Elements): void {
   itemTo.appendChild(element);
 }
